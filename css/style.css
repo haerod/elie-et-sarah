@@ -153,6 +153,8 @@ a { color: var(--accent); }
   font-family: var(--font-script); font-weight: 400; line-height: .8;
   font-size: clamp(3.2rem, 15vw, 5.8rem); color: var(--text); margin: 0;
   white-space: nowrap;
+  /* Nudged left by half its gap to the wreath, measured on desktop and mobile */
+  transform: translateX(max(-38px, -4.4vw));
 }
 /* One name per line, with the ampersand on its own line at half size */
 .hero-names span { display: block; }
