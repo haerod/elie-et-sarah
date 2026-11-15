@@ -154,11 +154,8 @@ a { color: var(--accent); }
   font-size: clamp(3.2rem, 15vw, 5.8rem); color: var(--text); margin: 0;
   white-space: nowrap;
 }
-/* One name per line, staggered, with the ampersand on its own line at half size */
-/* Shrink-wrapped so the shifted names do not widen the page */
-.hero-names span { display: block; width: fit-content; margin-inline: auto; }
-.hero-names .name-1 { transform: translateX(.4em); }
-.hero-names .name-2 { transform: translateX(-.4em); }
+/* One name per line, with the ampersand on its own line at half size */
+.hero-names span { display: block; }
 .hero-names .amp { color: var(--accent); font-size: .5em; }
 .hero-date { font-family: var(--font-title); font-size: clamp(1.4rem, 4vw, 1.9rem); margin: .3em 0 0; }
 .hero-place { color: var(--muted); margin-bottom: 1.5em; }
