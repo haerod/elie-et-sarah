@@ -8,6 +8,7 @@ window.TRANSLATIONS = {
     "nav.programme": "Programme",
     "nav.lieu": "Lieu",
     "nav.hebergement": "Hébergement",
+    "nav.dress": "Dress code",
     "nav.rsvp": "RSVP",
     "nav.faq": "FAQ",
     "nav.contact": "Contact",
@@ -47,6 +48,10 @@ window.TRANSLATIONS = {
     "heb.other.title": "Aux alentours",
     "heb.other.text": "Béziers et les villages voisins offrent de nombreux hôtels, gîtes et chambres d'hôtes, à moins de 20 minutes en voiture.",
 
+    "dress.title": "Dress code",
+    "dress.text": "Tenue chic, aux couleurs de l'automne si l'envie vous prend. Voici notre palette pour vous inspirer. Prévoyez des chaussures confortables et une petite laine pour la soirée.",
+    "dress.palette": "Palette de couleurs du dress code",
+
     "rsvp.title": "Votre réponse",
     "rsvp.intro": "Merci de répondre avant le 15.08.2027. Un formulaire par foyer suffit.",
     "rsvp.name": "Nom et prénom *",
@@ -77,8 +82,6 @@ window.TRANSLATIONS = {
     "gifts.text": "Votre présence est notre plus beau cadeau. Les infos sur la liste arrivent bientôt.",
 
     "faq.title": "Questions fréquentes",
-    "faq.q1": "Y a-t-il un dress code ?",
-    "faq.a1": "Tenue chic, aux couleurs de l'automne si l'envie vous prend. Prévoyez des chaussures confortables et une petite laine pour la soirée.",
     "faq.q2": "Les enfants sont-ils les bienvenus ?",
     "faq.a2": "Oui ! Indiquez-les dans le formulaire pour qu'on prévoie ce qu'il faut.",
     "faq.q3": "Peut-on se garer sur place ?",
@@ -102,6 +105,7 @@ window.TRANSLATIONS = {
     "nav.programme": "Schedule",
     "nav.lieu": "Venue",
     "nav.hebergement": "Stay",
+    "nav.dress": "Dress code",
     "nav.rsvp": "RSVP",
     "nav.faq": "FAQ",
     "nav.contact": "Contact",
@@ -141,6 +145,10 @@ window.TRANSLATIONS = {
     "heb.other.title": "Nearby",
     "heb.other.text": "Béziers and the surrounding villages have plenty of hotels, cottages and B&Bs, less than 20 minutes away by car.",
 
+    "dress.title": "Dress code",
+    "dress.text": "Smart attire, in autumn colours if you feel like it. Here is our palette for inspiration. Bring comfortable shoes and a warm layer for the evening.",
+    "dress.palette": "Dress code colour palette",
+
     "rsvp.title": "RSVP",
     "rsvp.intro": "Please reply by 15.08.2027. One form per household is enough.",
     "rsvp.name": "Full name *",
@@ -171,8 +179,6 @@ window.TRANSLATIONS = {
     "gifts.text": "Your presence is the best gift. Registry details coming soon.",
 
     "faq.title": "FAQ",
-    "faq.q1": "Is there a dress code?",
-    "faq.a1": "Smart attire, in autumn colours if you feel like it. Bring comfortable shoes and a warm layer for the evening.",
     "faq.q2": "Are children welcome?",
     "faq.a2": "Yes! Just list them in the form so we can plan accordingly.",
     "faq.q3": "Is there parking?",

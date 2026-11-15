@@ -247,6 +247,12 @@ a { color: var(--accent); }
 }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { color: var(--muted); }
+.palette { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; list-style: none; padding: 0; margin: 0 auto; }
+@media (max-width: 600px) { .palette { max-width: 228px; } } /* 3 + 3 rows on phones */
+.palette li {
+  width: 64px; height: 64px; border-radius: 50%; background: var(--swatch);
+  border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+}
 
 /* ---------- Footer ---------- */
 
