@@ -155,7 +155,8 @@ a { color: var(--accent); }
   white-space: nowrap;
 }
 /* One name per line, staggered, with the ampersand on its own line at half size */
-.hero-names span { display: block; }
+/* Shrink-wrapped so the shifted names do not widen the page */
+.hero-names span { display: block; width: fit-content; margin-inline: auto; }
 .hero-names .name-1 { transform: translateX(.4em); }
 .hero-names .name-2 { transform: translateX(-.4em); }
 .hero-names .amp { color: var(--accent); font-size: .5em; }
