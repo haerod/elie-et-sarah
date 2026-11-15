@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elie & Sarah · 16.10.2027</title>
+  <meta name="description" content="Notre mariage au Domaine de la Grande Canague, le 16 octobre 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Parisienne&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#accueil">E <span>&amp;</span> S</a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="nav" data-i18n-aria="nav.menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="nav" class="nav">
+    <a href="#programme" data-i18n="nav.programme"></a>
+    <a href="#lieu" data-i18n="nav.lieu"></a>
+    <a href="#hebergement" data-i18n="nav.hebergement"></a>
+    <a href="#rsvp" data-i18n="nav.rsvp"></a>
+    <a href="#faq" data-i18n="nav.faq"></a>
+    <a href="#contact" data-i18n="nav.contact"></a>
+    <div class="lang-switch">
+      <button type="button" data-lang="fr">FR</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="accueil" class="hero">
+    <!-- TODO: replace with the chosen illustration (assets/hero.png) -->
+    <svg class="ornament ornament-top" viewBox="0 0 240 60" aria-hidden="true">
+      <use href="#leaf" width="40" height="60" x="20" y="10" transform="rotate(-20 40 30)" class="c1"/>
+      <use href="#leaf" width="40" height="60" x="95" y="0" class="c2"/>
+      <use href="#leaf" width="40" height="60" x="170" y="10" transform="rotate(20 190 30)" class="c3"/>
+    </svg>
+    <p class="hero-kicker" data-i18n="hero.kicker"></p>
+    <h1 class="hero-names">Elie <span>&amp;</span> Sarah</h1>
+    <p class="hero-date" data-i18n="hero.date"></p>
+    <p class="hero-place">Domaine de la Grande Canague · Montady</p>
+
+    <div class="countdown" aria-live="polite">
+      <div><span id="cd-days">0</span><small data-i18n="cd.days"></small></div>
+      <div><span id="cd-hours">0</span><small data-i18n="cd.hours"></small></div>
+      <div><span id="cd-minutes">0</span><small data-i18n="cd.minutes"></small></div>
+    </div>
+
+    <a class="btn" href="#rsvp" data-i18n="hero.cta"></a>
+  </section>
+
+  <!-- PROGRAMME -->
+  <section id="programme" class="section">
+    <h2 data-i18n="programme.title"></h2>
+    <p class="lead" data-i18n="programme.intro"></p>
+    <div class="cards">
+      <article class="card">
+        <p class="card-day" data-i18n="programme.sat.day"></p>
+        <p class="card-time" data-i18n="programme.sat.time"></p>
+        <h3 data-i18n="programme.sat.title"></h3>
+        <p data-i18n="programme.sat.text"></p>
+      </article>
+      <article class="card">
+        <p class="card-day" data-i18n="programme.sun.day"></p>
+        <p class="card-time" data-i18n="programme.sun.time"></p>
+        <h3 data-i18n="programme.sun.title"></h3>
+        <p data-i18n="programme.sun.text"></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- LIEU -->
+  <section id="lieu" class="section section-alt">
+    <h2 data-i18n="lieu.title"></h2>
+    <div class="split">
+      <div>
+        <h3>Domaine de la Grande Canague</h3>
+        <p data-i18n="lieu.address"></p>
+        <p data-i18n="lieu.text"></p>
+        <ul class="plain">
+          <li data-i18n-html="lieu.car"></li>
+          <li data-i18n-html="lieu.train"></li>
+          <li data-i18n-html="lieu.plane"></li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-small" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Domaine+de+la+Grande+Canague+Montady" data-i18n="lieu.maps"></a>
+          <a class="btn btn-small btn-ghost" target="_blank" rel="noopener" href="https://waze.com/ul?q=Domaine%20de%20la%20Grande%20Canague%20Montady" >Waze</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe title="Carte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Domaine+de+la+Grande+Canague+Montady&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEBERGEMENT -->
+  <section id="hebergement" class="section">
+    <h2 data-i18n="heb.title"></h2>
+    <div class="cards">
+      <article class="card">
+        <h3 data-i18n="heb.tipi.title"></h3>
+        <p data-i18n="heb.tipi.text"></p>
+        <a class="btn btn-small" target="_blank" rel="noopener" href="https://domainelagrandecanague.fr/" data-i18n="heb.tipi.cta"></a>
+      </article>
+      <article class="card">
+        <h3 data-i18n="heb.other.title"></h3>
+        <p data-i18n="heb.other.text"></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="section section-alt">
+    <h2 data-i18n="rsvp.title"></h2>
+    <p class="lead" data-i18n="rsvp.intro"></p>
+
+    <form id="rsvp-form" class="form" novalidate>
+      <!-- honeypot: hidden from humans, filled by bots -->
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off">
+
+      <label>
+        <span data-i18n="rsvp.name"></span>
+        <input type="text" name="name" required autocomplete="name">
+      </label>
+
+      <label>
+        <span data-i18n="rsvp.email"></span>
+        <input type="email" name="email" autocomplete="email">
+      </label>
+
+      <fieldset class="choice">
+        <legend data-i18n="rsvp.attending"></legend>
+        <label><input type="radio" name="attending" value="oui" required> <span data-i18n="rsvp.yes"></span></label>
+        <label><input type="radio" name="attending" value="non"> <span data-i18n="rsvp.no"></span></label>
+      </fieldset>
+
+      <div class="if-attending" hidden>
+        <div class="row">
+          <label>
+            <span data-i18n="rsvp.adults"></span>
+            <input type="number" name="adults" min="1" max="10" value="1">
+          </label>
+          <label>
+            <span data-i18n="rsvp.children"></span>
+            <input type="number" name="children" min="0" max="10" value="0">
+          </label>
+        </div>
+
+        <label>
+          <span data-i18n="rsvp.guests"></span>
+          <textarea name="guests" rows="2" data-i18n-placeholder="rsvp.guests.ph"></textarea>
+        </label>
+
+        <label>
+          <span data-i18n="rsvp.diet"></span>
+          <textarea name="diet" rows="2" data-i18n-placeholder="rsvp.diet.ph"></textarea>
+        </label>
+
+        <fieldset class="choice">
+          <legend data-i18n="rsvp.brunch"></legend>
+          <label><input type="radio" name="brunch" value="oui"> <span data-i18n="rsvp.yes.short"></span></label>
+          <label><input type="radio" name="brunch" value="non"> <span data-i18n="rsvp.no.short"></span></label>
+        </fieldset>
+
+        <fieldset class="choice">
+          <legend data-i18n="rsvp.tipi"></legend>
+          <label><input type="radio" name="tipi" value="oui"> <span data-i18n="rsvp.yes.short"></span></label>
+          <label><input type="radio" name="tipi" value="non"> <span data-i18n="rsvp.no.short"></span></label>
+          <label><input type="radio" name="tipi" value="ne sait pas"> <span data-i18n="rsvp.maybe"></span></label>
+        </fieldset>
+      </div>
+
+      <label>
+        <span data-i18n="rsvp.message"></span>
+        <textarea name="message" rows="3"></textarea>
+      </label>
+
+      <button class="btn" type="submit" data-i18n="rsvp.submit"></button>
+      <p class="form-status" role="status"></p>
+    </form>
+  </section>
+
+  <!-- CADEAUX -->
+  <section id="cadeaux" class="section">
+    <h2 data-i18n="gifts.title"></h2>
+    <p class="lead" data-i18n="gifts.text"></p>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section section-alt">
+    <h2 data-i18n="faq.title"></h2>
+    <div class="faq">
+      <details><summary data-i18n="faq.q1"></summary><p data-i18n="faq.a1"></p></details>
+      <details><summary data-i18n="faq.q2"></summary><p data-i18n="faq.a2"></p></details>
+      <details><summary data-i18n="faq.q3"></summary><p data-i18n="faq.a3"></p></details>
+      <details><summary data-i18n="faq.q4"></summary><p data-i18n="faq.a4"></p></details>
+      <details><summary data-i18n="faq.q5"></summary><p data-i18n="faq.a5"></p></details>
+      <details><summary data-i18n="faq.q6"></summary><p data-i18n="faq.a6"></p></details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2 data-i18n="contact.title"></h2>
+    <p class="lead" data-i18n="contact.intro"></p>
+    <div class="cards cards-3">
+      <article class="card center">
+        <h3 data-i18n="contact.us"></h3>
+        <p><a href="mailto:sarah.elie.famille@gmail.com">sarah.elie.famille@gmail.com</a></p>
+      </article>
+      <article class="card center">
+        <h3 data-i18n="contact.witness1"></h3>
+        <p>06 00 00 00 00</p>
+      </article>
+      <article class="card center">
+        <h3 data-i18n="contact.witness2"></h3>
+        <p>06 00 00 00 00</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="footer-names">Elie &amp; Sarah</p>
+  <p>16.10.2027</p>
+</footer>
+
+<!-- Temporary leaf ornament, to be replaced by the chosen illustrations -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf" viewBox="0 0 40 60">
+    <path d="M20 2 C34 16 36 36 20 56 C4 36 6 16 20 2 Z" fill="currentColor"/>
+    <path d="M20 8 V58" stroke="rgba(0,0,0,.18)" stroke-width="1.4" fill="none"/>
+  </symbol>
+</svg>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
