@@ -131,7 +131,6 @@ a { color: var(--accent); }
 /* ---------- Hero ---------- */
 
 .hero {
-  position: relative; overflow: hidden;
   min-height: calc(100svh - 61px);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 48px var(--gutter);
@@ -140,12 +139,14 @@ a { color: var(--accent); }
     radial-gradient(ellipse at 85% 90%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 55%),
     var(--bg);
 }
-.hero > :not(.hero-leaf) { position: relative; }
-.hero-bouquet { width: min(380px, 82vw); height: auto; margin-bottom: 8px; }
-.hero-leaf { position: absolute; height: auto; pointer-events: none; }
-.hero-leaf-tl { width: clamp(110px, 18vw, 220px); top: -20px; left: -30px; transform: rotate(-15deg); }
-.hero-leaf-br { width: clamp(100px, 16vw, 200px); bottom: -30px; right: -25px; transform: rotate(160deg); }
-@media (max-width: 600px) { .hero-leaf { opacity: .55; } }
+/* Names sit inside the wreath's arc, which frames them on the left and bottom */
+.hero-title {
+  position: relative; width: min(600px, 92vw); aspect-ratio: 900 / 822;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 0 18% 16%;
+}
+.hero-wreath { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-title > :not(.hero-wreath) { position: relative; text-shadow: 0 0 18px var(--bg), 0 0 6px var(--bg); }
 
 .hero-kicker {
   text-transform: uppercase; letter-spacing: .3em; font-size: .8rem; font-weight: 700;
@@ -153,11 +154,12 @@ a { color: var(--accent); }
 }
 .hero-names {
   font-family: var(--font-script); font-weight: 400;
-  font-size: clamp(3.4rem, 13vw, 6.5rem); color: var(--text); margin: 0;
+  font-size: clamp(2.5rem, 10.5vw, 4.4rem); color: var(--text); margin: 0;
+  white-space: nowrap;
 }
 .hero-names span { color: var(--accent); }
 .hero-date { font-family: var(--font-title); font-size: clamp(1.4rem, 4vw, 1.9rem); margin: .3em 0 0; }
-.hero-place { color: var(--muted); margin-bottom: 2em; }
+.hero-place { color: var(--muted); margin-bottom: 1.5em; }
 
 .countdown { display: flex; gap: 14px; margin-bottom: 2.2em; font-family: var(--font-title); font-size: 1.3rem; }
 .countdown div {
