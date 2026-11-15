@@ -23,13 +23,17 @@ function detectLang() {
   return navigator.language.toLowerCase().startsWith("fr") ? "fr" : "en";
 }
 
+function translate(root) {
+  root.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  root.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+  root.querySelectorAll("[data-i18n-placeholder]").forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
+  root.querySelectorAll("[data-i18n-aria]").forEach(el => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+}
+
 function applyLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
-  document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
-  document.querySelectorAll("[data-i18n-aria]").forEach(el => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+  translate(document);
   document.querySelectorAll("[data-lang]").forEach(btn => {
     btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
   });
@@ -75,15 +79,52 @@ function updateCountdown() {
 
 // ---------- RSVP ----------
 
+// Collects the visible, filled fields. Repeated names (guests, nights) are joined.
+function collectRsvp(form) {
+  const data = { lang: currentLang };
+  for (const el of form.elements) {
+    if (!el.name || el.closest("[hidden]")) continue;
+    if ((el.type === "radio" || el.type === "checkbox") && !el.checked) continue;
+    const value = el.value.trim();
+    if (!value) continue;
+    data[el.name] = data[el.name] ? `${data[el.name]}, ${value}` : value;
+  }
+  if (data.attending === "oui") {
+    data.count = 1 + [...form.querySelectorAll("input[name=guests]")].filter(el => el.value.trim()).length;
+  }
+  return data;
+}
+
 function initRsvp() {
   const form = document.getElementById("rsvp-form");
-  const attendingBlock = form.querySelector(".if-attending");
   const status = form.querySelector(".form-status");
   const submit = form.querySelector("button[type=submit]");
+  const guestList = form.querySelector(".guest-list");
+  const guestTemplate = document.getElementById("guest-row");
 
-  form.querySelectorAll("input[name=attending]").forEach(radio => {
-    radio.addEventListener("change", () => { attendingBlock.hidden = form.elements["attending"].value !== "oui"; });
-  });
+  // Elements with data-show-if="field=value" are shown only when that field has that value.
+  const updateVisibility = () => {
+    form.querySelectorAll("[data-show-if]").forEach(el => {
+      const [name, value] = el.dataset.showIf.split("=");
+      el.hidden = form.elements[name].value !== value;
+    });
+  };
+  form.addEventListener("change", updateVisibility);
+
+  const addGuestRow = () => {
+    const row = guestTemplate.content.firstElementChild.cloneNode(true);
+    translate(row);
+    row.querySelector(".remove-guest").addEventListener("click", () => row.remove());
+    guestList.append(row);
+    return row;
+  };
+  form.querySelector(".add-guest").addEventListener("click", () => addGuestRow().querySelector("input").focus());
+
+  const resetGuests = () => {
+    guestList.replaceChildren();
+    addGuestRow();
+  };
+  resetGuests();
 
   const setStatus = (key, kind) => {
     status.textContent = t(key);
@@ -93,19 +134,18 @@ function initRsvp() {
   form.addEventListener("submit", async event => {
     event.preventDefault();
 
-    if (!form.elements["name"].value.trim() || !form.elements["attending"].value) {
+    const data = collectRsvp(form);
+    if (!data.name || !data.attending) {
       setStatus("rsvp.invalid", "error");
+      return;
+    }
+    if (data.lodging === "tipi" && !data.nights) {
+      setStatus("rsvp.invalidNights", "error");
       return;
     }
     if (!RSVP_ENDPOINT) {
       setStatus("rsvp.notConfigured", "error");
       return;
-    }
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    data.lang = currentLang;
-    if (data.attending !== "oui") {
-      for (const key of ["adults", "children", "guests", "diet", "brunch", "tipi"]) delete data[key];
     }
 
     submit.disabled = true;
@@ -120,7 +160,8 @@ function initRsvp() {
       const result = await response.json();
       if (!result.ok) throw new Error(result.error);
       form.reset();
-      attendingBlock.hidden = true;
+      resetGuests();
+      updateVisibility();
       setStatus("rsvp.success", "success");
     } catch (err) {
       console.error("RSVP submission failed:", err);

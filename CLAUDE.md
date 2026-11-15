@@ -10,7 +10,7 @@ Site de mariage informatif + RSVP, compatible PC et mobile, bilingue FR/EN, publ
 - Date : samedi 16.10.2027, début à 14h. Brunch facultatif le dimanche 17.10.2027.
 - Lieu unique : Domaine de la Grande Canague, Montady (Hérault), https://domainelagrandecanague.fr/
 - Environ 100 invités, tous invités à tout. Le brunch est seulement pour ceux qui le veulent.
-- Tipis sur place, réservés et payés par les invités directement auprès du domaine.
+- Tipis sur place (4 places max par tipi), réservés auprès des mariés via le formulaire RSVP, à la charge des invités : 30 €/personne/nuit.
 - Programme volontairement peu détaillé.
 - Liste de mariage : pas encore décidée.
 

@@ -3,8 +3,8 @@
 
 const SHEET_NAME = "RSVP";
 const COLUMNS = [
-  "date", "name", "email", "attending", "adults", "children",
-  "guests", "diet", "brunch", "tipi", "message", "lang",
+  "date", "name", "email", "attending", "count", "guests", "diet", "brunch",
+  "lodging", "nights", "share", "shareWith", "song", "talent", "message", "lang",
 ];
 
 function doPost(e) {

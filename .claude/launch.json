@@ -4,7 +4,7 @@
     {
       "name": "site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8000"],
+      "runtimeArgs": ["-c", "import os, http.server as h; h.test(h.SimpleHTTPRequestHandler, port=int(os.environ['PORT']))"],
       "port": 8000
     },
     {

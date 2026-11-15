@@ -104,11 +104,42 @@
       <article class="card">
         <h3 data-i18n="heb.tipi.title"></h3>
         <p data-i18n="heb.tipi.text"></p>
-        <a class="btn btn-small" target="_blank" rel="noopener" href="https://domainelagrandecanague.fr/" data-i18n="heb.tipi.cta"></a>
+        <a class="btn btn-small" href="#rsvp" data-i18n="heb.tipi.cta"></a>
       </article>
       <article class="card">
         <h3 data-i18n="heb.other.title"></h3>
         <p data-i18n="heb.other.text"></p>
+        <ul class="stay-list">
+          <li>
+            <a href="https://www.aloreedesvignes.com/" target="_blank" rel="noopener">A l'Orée des Vignes</a>
+            <span class="stay-meta">Montady · <span data-i18n="heb.type.bnb"></span> · ~5 min</span>
+          </li>
+          <li>
+            <a href="https://www.herault-tourisme.com/fr/fiche/residences/le-domaine-d-enserune-colombiers_TFORETOULAR034V50XLJ7/" target="_blank" rel="noopener">Le Domaine d'Enserune</a>
+            <span class="stay-meta">Colombiers · <span data-i18n="heb.type.residence"></span> · ~10 min</span>
+          </li>
+          <li>
+            <a href="https://www.hotel-residence.com/" target="_blank" rel="noopener">Logis Hôtel Résidence</a>
+            <span class="stay-meta">Nissan-lez-Ensérune · <span data-i18n="heb.type.hotel"></span> · ~10 min</span>
+          </li>
+          <li>
+            <a href="https://www.herault-tourisme.com/fr/fiche/hebergements-locatifs/domaine-de-salabert-nissan-lez-enserune_TFOHLOLAR034V51R32S/" target="_blank" rel="noopener">Domaine de Salabert</a>
+            <span class="stay-meta">Nissan-lez-Ensérune · <span data-i18n="heb.type.bnb"></span> · ~10 min</span>
+          </li>
+          <li>
+            <a href="https://entremidi.fr/" target="_blank" rel="noopener">Entre Midi</a>
+            <span class="stay-meta">Capestang · <span data-i18n="heb.type.bnb"></span> · ~15 min</span>
+          </li>
+          <li>
+            <a href="https://www.herault-tourisme.com/fr/fiche/hotellerie/hotel-le-xix-beziers_TFOHOTLAR034V52T55U/" target="_blank" rel="noopener">Hôtel Le XIX</a>
+            <span class="stay-meta">Béziers · <span data-i18n="heb.type.hotel"></span> · ~20 min</span>
+          </li>
+          <li>
+            <a href="https://www.herault-tourisme.com/fr/fiche/hotellerie/ibis-styles-beziers-centre-beziers_TFOHOTLAR034V52T55P/" target="_blank" rel="noopener">Ibis Styles Béziers Centre</a>
+            <span class="stay-meta">Béziers · <span data-i18n="heb.type.hotel"></span> · ~20 min</span>
+          </li>
+        </ul>
+        <p class="stay-more" data-i18n-html="heb.other.more"></p>
       </article>
     </div>
   </section>
@@ -152,22 +183,19 @@
         <label><input type="radio" name="attending" value="non"> <span data-i18n="rsvp.no"></span></label>
       </fieldset>
 
-      <div class="if-attending" hidden>
-        <div class="row">
-          <label>
-            <span data-i18n="rsvp.adults"></span>
-            <input type="number" name="adults" min="1" max="10" value="1">
-          </label>
-          <label>
-            <span data-i18n="rsvp.children"></span>
-            <input type="number" name="children" min="0" max="10" value="0">
-          </label>
-        </div>
-
-        <label>
-          <span data-i18n="rsvp.guests"></span>
-          <textarea name="guests" rows="2" data-i18n-placeholder="rsvp.guests.ph"></textarea>
-        </label>
+      <div class="if-attending" data-show-if="attending=oui" hidden>
+        <fieldset class="guests">
+          <legend data-i18n="rsvp.guests"></legend>
+          <p class="hint" data-i18n="rsvp.guests.hint"></p>
+          <div class="guest-list"></div>
+          <button type="button" class="btn btn-small btn-ghost add-guest" data-i18n="rsvp.guests.add"></button>
+        </fieldset>
+        <template id="guest-row">
+          <div class="guest-row">
+            <input type="text" name="guests" data-i18n-placeholder="rsvp.guests.ph" data-i18n-aria="rsvp.guests.ph">
+            <button type="button" class="remove-guest" data-i18n-aria="rsvp.guests.remove">&times;</button>
+          </div>
+        </template>
 
         <label>
           <span data-i18n="rsvp.diet"></span>
@@ -181,11 +209,40 @@
         </fieldset>
 
         <fieldset class="choice">
-          <legend data-i18n="rsvp.tipi"></legend>
-          <label><input type="radio" name="tipi" value="oui"> <span data-i18n="rsvp.yes.short"></span></label>
-          <label><input type="radio" name="tipi" value="non"> <span data-i18n="rsvp.no.short"></span></label>
-          <label><input type="radio" name="tipi" value="ne sait pas"> <span data-i18n="rsvp.maybe"></span></label>
+          <legend data-i18n="rsvp.lodging"></legend>
+          <label><input type="radio" name="lodging" value="tipi"> <span data-i18n="rsvp.lodging.tipi"></span></label>
+          <label><input type="radio" name="lodging" value="autre"> <span data-i18n="rsvp.lodging.other"></span></label>
         </fieldset>
+
+        <div class="if-tipi" data-show-if="lodging=tipi" hidden>
+          <p class="hint" data-i18n="rsvp.tipi.hint"></p>
+          <fieldset class="choice">
+            <legend data-i18n="rsvp.nights"></legend>
+            <label><input type="checkbox" name="nights" value="vendredi"> <span data-i18n="rsvp.nights.fri"></span></label>
+            <label><input type="checkbox" name="nights" value="samedi"> <span data-i18n="rsvp.nights.sat"></span></label>
+          </fieldset>
+
+          <fieldset class="choice">
+            <legend data-i18n="rsvp.share"></legend>
+            <label><input type="radio" name="share" value="oui"> <span data-i18n="rsvp.yes.short"></span></label>
+            <label><input type="radio" name="share" value="non"> <span data-i18n="rsvp.no.short"></span></label>
+          </fieldset>
+
+          <label data-show-if="share=oui" hidden>
+            <span data-i18n="rsvp.shareWith"></span>
+            <textarea name="shareWith" rows="2" data-i18n-placeholder="rsvp.shareWith.ph"></textarea>
+          </label>
+        </div>
+
+        <label>
+          <span data-i18n="rsvp.song"></span>
+          <input type="text" name="song" data-i18n-placeholder="rsvp.song.ph">
+        </label>
+
+        <label>
+          <span data-i18n="rsvp.talent"></span>
+          <textarea name="talent" rows="3" data-i18n-placeholder="rsvp.talent.ph"></textarea>
+        </label>
       </div>
 
       <label>
