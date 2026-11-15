@@ -143,7 +143,8 @@ a { color: var(--accent); }
 .hero-title {
   position: relative; width: min(600px, 92vw); aspect-ratio: 900 / 822;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 0 0 18% 16%;
+  /* 18% / 16% of the box's own width (percent padding would use the parent's width) */
+  padding: 0 0 min(108px, 16.56vw) min(96px, 14.72vw);
 }
 .hero-wreath { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-title > :not(.hero-wreath) { position: relative; text-shadow: 0 0 18px var(--bg), 0 0 6px var(--bg); }
