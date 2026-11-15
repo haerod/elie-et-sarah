@@ -36,12 +36,9 @@
 
   <!-- HERO -->
   <section id="accueil" class="hero">
-    <!-- TODO: replace with the chosen illustration (assets/hero.png) -->
-    <svg class="ornament ornament-top" viewBox="0 0 240 60" aria-hidden="true">
-      <use href="#leaf" width="40" height="60" x="20" y="10" transform="rotate(-20 40 30)" class="c1"/>
-      <use href="#leaf" width="40" height="60" x="95" y="0" class="c2"/>
-      <use href="#leaf" width="40" height="60" x="170" y="10" transform="rotate(20 190 30)" class="c3"/>
-    </svg>
+    <img class="hero-leaf hero-leaf-tl" src="assets/leaf-red.png" alt="" width="360" height="415">
+    <img class="hero-leaf hero-leaf-br" src="assets/leaf-yellow.png" alt="" width="360" height="419">
+    <img class="hero-bouquet" src="assets/hero-bouquet.png" alt="" width="820" height="611">
     <p class="hero-kicker" data-i18n="hero.kicker"></p>
     <h1 class="hero-names">Elie <span>&amp;</span> Sarah</h1>
     <p class="hero-date" data-i18n="hero.date"></p>
@@ -238,6 +235,7 @@
         <p>06 00 00 00 00</p>
       </article>
     </div>
+    <img class="closing-art" src="assets/pumpkins.png" alt="" width="820" height="490" loading="lazy">
   </section>
 
 </main>
@@ -246,14 +244,6 @@
   <p class="footer-names">Elie &amp; Sarah</p>
   <p>16.10.2027</p>
 </footer>
-
-<!-- Temporary leaf ornament, to be replaced by the chosen illustrations -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="leaf" viewBox="0 0 40 60">
-    <path d="M20 2 C34 16 36 36 20 56 C4 36 6 16 20 2 Z" fill="currentColor"/>
-    <path d="M20 8 V58" stroke="rgba(0,0,0,.18)" stroke-width="1.4" fill="none"/>
-  </symbol>
-</svg>
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>

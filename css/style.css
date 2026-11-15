@@ -71,6 +71,10 @@ body {
 
 h1, h2, h3 { font-family: var(--font-title); font-weight: 600; line-height: 1.15; margin: 0 0 .5em; }
 h2 { font-size: clamp(2rem, 5vw, 2.8rem); text-align: center; color: var(--wine); }
+h2::before {
+  content: ""; display: block; width: 84px; height: 61px; margin: 0 auto 10px;
+  background: url("../assets/sprig.png") center / contain no-repeat;
+}
 h3 { font-size: 1.45rem; }
 p { margin: 0 0 1em; }
 a { color: var(--accent); }
@@ -127,6 +131,7 @@ a { color: var(--accent); }
 /* ---------- Hero ---------- */
 
 .hero {
+  position: relative; overflow: hidden;
   min-height: calc(100svh - 61px);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 48px var(--gutter);
@@ -135,10 +140,12 @@ a { color: var(--accent); }
     radial-gradient(ellipse at 85% 90%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 55%),
     var(--bg);
 }
-.ornament { width: 200px; height: 50px; margin-bottom: 12px; overflow: visible; }
-.ornament .c1 { color: var(--gold); }
-.ornament .c2 { color: var(--accent); }
-.ornament .c3 { color: var(--wine); }
+.hero > :not(.hero-leaf) { position: relative; }
+.hero-bouquet { width: min(380px, 82vw); height: auto; margin-bottom: 8px; }
+.hero-leaf { position: absolute; height: auto; pointer-events: none; }
+.hero-leaf-tl { width: clamp(110px, 18vw, 220px); top: -20px; left: -30px; transform: rotate(-15deg); }
+.hero-leaf-br { width: clamp(100px, 16vw, 200px); bottom: -30px; right: -25px; transform: rotate(160deg); }
+@media (max-width: 600px) { .hero-leaf { opacity: .55; } }
 
 .hero-kicker {
   text-transform: uppercase; letter-spacing: .3em; font-size: .8rem; font-weight: 700;
@@ -253,6 +260,8 @@ a { color: var(--accent); }
   width: 64px; height: 64px; border-radius: 50%; background: var(--swatch);
   border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
 }
+
+.closing-art { display: block; width: min(460px, 90vw); height: auto; margin-top: 56px; margin-bottom: -80px; }
 
 /* ---------- Footer ---------- */
 
