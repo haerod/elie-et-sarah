@@ -13,7 +13,6 @@ window.TRANSLATIONS = {
     "nav.faq": "FAQ",
     "nav.contact": "Contact",
 
-    "hero.kicker": "Nous nous marions",
     "hero.date": "Samedi 16 octobre 2027",
     "hero.cta": "Répondre à l'invitation",
 
@@ -110,7 +109,6 @@ window.TRANSLATIONS = {
     "nav.faq": "FAQ",
     "nav.contact": "Contact",
 
-    "hero.kicker": "We're getting married",
     "hero.date": "Saturday, 16 October 2027",
     "hero.cta": "RSVP",
 
