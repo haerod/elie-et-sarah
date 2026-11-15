@@ -14,7 +14,7 @@
   --shadow: 0 6px 24px rgba(91, 52, 26, .08);
 
   --font-title: "Cormorant Garamond", Georgia, serif;
-  --font-script: "Parisienne", cursive;
+  --font-script: "Mrs Saint Delafield", cursive;
   --font-body: "Nunito Sans", system-ui, sans-serif;
 
   --radius: 14px;
@@ -149,7 +149,7 @@ a { color: var(--accent); }
 .hero-title > :not(.hero-wreath) { position: relative; text-shadow: 0 0 18px var(--bg), 0 0 6px var(--bg); }
 
 .hero-names {
-  font-family: "Mrs Saint Delafield", cursive; font-weight: 400; line-height: 1.3;
+  font-family: var(--font-script); font-weight: 400; line-height: 1.3;
   font-size: clamp(3.2rem, 14vw, 5.8rem); color: var(--text); margin: 0;
   white-space: nowrap;
 }
@@ -265,4 +265,4 @@ a { color: var(--accent); }
 
 .footer { text-align: center; padding: 48px var(--gutter); background: #6b2824; color: #f6e7d6; }
 .footer p { margin: 0; }
-.footer-names { font-family: var(--font-script); font-size: 2.4rem; }
+.footer-names { font-family: var(--font-script); font-size: 3.2rem; line-height: 1.3; word-spacing: .15em; }
