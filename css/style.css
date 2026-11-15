@@ -150,12 +150,15 @@ a { color: var(--accent); }
 .hero-title > :not(.hero-wreath) { position: relative; text-shadow: 0 0 18px var(--bg), 0 0 6px var(--bg); }
 
 .hero-names {
-  font-family: var(--font-script); font-weight: 400; line-height: 1.05;
+  font-family: var(--font-script); font-weight: 400; line-height: .8;
   font-size: clamp(3.2rem, 15vw, 5.8rem); color: var(--text); margin: 0;
   white-space: nowrap;
 }
-/* One name per line, with the ampersand on its own line at half size */
-.hero-names span { display: block; color: var(--accent); font-size: .5em; }
+/* One name per line, staggered, with the ampersand on its own line at half size */
+.hero-names span { display: block; }
+.hero-names .name-1 { transform: translateX(.4em); }
+.hero-names .name-2 { transform: translateX(-.4em); }
+.hero-names .amp { color: var(--accent); font-size: .5em; }
 .hero-date { font-family: var(--font-title); font-size: clamp(1.4rem, 4vw, 1.9rem); margin: .3em 0 0; }
 .hero-place { color: var(--muted); margin-bottom: 1.5em; }
 
