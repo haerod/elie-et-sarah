@@ -141,20 +141,21 @@ a { color: var(--accent); }
 }
 /* Names sit inside the wreath's arc, which frames them on the left and bottom */
 .hero-title {
-  position: relative; width: min(600px, 92vw); aspect-ratio: 900 / 822;
+  position: relative; width: min(660px, 94vw); aspect-ratio: 900 / 822;
   display: flex; flex-direction: column; justify-content: center;
   /* 18% / 16% of the box's own width (percent padding would use the parent's width) */
-  padding: 0 0 min(108px, 16.56vw) min(96px, 14.72vw);
+  padding: 0 0 min(118.8px, 16.92vw) min(105.6px, 15.04vw);
 }
 .hero-wreath { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-title > :not(.hero-wreath) { position: relative; text-shadow: 0 0 18px var(--bg), 0 0 6px var(--bg); }
 
 .hero-names {
   font-family: var(--font-script); font-weight: 400; line-height: 1.05;
-  font-size: clamp(3.6rem, 17vw, 6.6rem); color: var(--text); margin: 0;
+  font-size: clamp(3.2rem, 15vw, 5.8rem); color: var(--text); margin: 0;
   white-space: nowrap;
 }
-.hero-names span { color: var(--accent); font-size: .6em; margin-left: .05em; }
+/* One name per line, with the ampersand on its own line at half size */
+.hero-names span { display: block; color: var(--accent); font-size: .5em; }
 .hero-date { font-family: var(--font-title); font-size: clamp(1.4rem, 4vw, 1.9rem); margin: .3em 0 0; }
 .hero-place { color: var(--muted); margin-bottom: 1.5em; }
 
